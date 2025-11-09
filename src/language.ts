@@ -8,8 +8,8 @@ export interface Language {
 }
 
 export function getLanguages(): Language[] {
-    const snippetsDir = path.join(process.cwd(), 'src/snippets');
-    const globalsDir = path.join(process.cwd(), 'src/globals');
+    const snippetsDir = path.resolve('src/snippets');
+    const globalsDir = path.resolve('src/globals');
 
     const languages = fs
         .readdirSync(snippetsDir)
