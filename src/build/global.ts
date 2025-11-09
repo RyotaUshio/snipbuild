@@ -5,7 +5,7 @@ export async function buildGlobal(language: Language): Promise<string> {
     if (!language.globalPath) return '';
 
     const bundle = await bundleGlobal(language);
-    return `global\nconst{${bundle.exports.join(',')}}=(exports=>{{${bundle.code}}return exports;})({});\nendglobal\n\n`;
+    return `global\nconst{${bundle.exports.join(',')}}=(exports=>((()=>{${bundle.code}})(),exports))({});\nendglobal\n\n`;
 }
 
 async function bundleGlobal(language: Language): Promise<OutputChunk> {
