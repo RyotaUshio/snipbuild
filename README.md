@@ -9,7 +9,7 @@
 - The snippet blocks for each language is located at `src/snippets/[LANGUAGE].hsnips`. It is in the exact same format as normal `.hsnips` files except:
   - It does not have the `global ... endglobal` block at the top.
   - It allows you to include common snippets shared by several (but not necessarily all) languages using `#include "..."`.
-- When running `npx snipbuild`, [Rolldown](https://rolldown.rs/) generates the global JavaScript from `src/globals[LANGUAGE.ts]`, and the output is concatenated with the snippet blocks from `src/snippets/[LANGUAGE].hsnips`.
+- When running `npx snipbuild`, [Rolldown](https://rolldown.rs/) generates the global JavaScript from `src/globals/[LANGUAGE.ts]`, and the output is concatenated with the snippet blocks from `src/snippets/[LANGUAGE].hsnips`.
 
 ## How to use
 
