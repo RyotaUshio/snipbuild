@@ -1,20 +1,19 @@
-import { build } from 'rolldown';
+import { build, type OutputChunk } from 'rolldown';
 import type { Language } from '../language';
 
 export async function buildGlobal(language: Language): Promise<string> {
     if (!language.globalPath) return '';
 
-    let code = await bundleGlobal(language);
-    code = stripeExport(code);
-
-    return 'global\n' + code.trim() + '\nendglobal\n\n';
+    const bundle = await bundleGlobal(language);
+    return `global\nconst _exports={};(exports=>{${bundle.code}})(_exports);const{${bundle.exports.join(',')}}=_exports;\nendglobal\n\n`;
 }
 
-async function bundleGlobal(language: Language): Promise<string> {
+async function bundleGlobal(language: Language): Promise<OutputChunk> {
     const output = await build({
         input: language.globalPath,
         output: {
-            // minify: true,
+            minify: true,
+            format: 'cjs',
         },
         experimental: {
             attachDebugInfo: 'none',
@@ -23,11 +22,5 @@ async function bundleGlobal(language: Language): Promise<string> {
     });
 
     console.assert(output.output.length === 1);
-    const { code } = output.output[0];
-
-    return code;
-}
-
-function stripeExport(code: string): string {
-    return code.replace(/export\s*\{.*\};?$/, '');
+    return output.output[0];
 }
