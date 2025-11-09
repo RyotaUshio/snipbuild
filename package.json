@@ -1,6 +1,6 @@
 {
   "name": "snipbuild",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "HyperSnips snippets bundler",
   "bin": {
     "snipbuild": "bin/cli.mjs"
