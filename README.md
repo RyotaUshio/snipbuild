@@ -3,9 +3,9 @@
 **snipbuild** is a build tool that provides an easier way to develop [HyperSnips](https://github.com/draivin/hsnips) snippets.
 
 - You can develop Global block JavaScript using TypeScript.
-    - Each `src/globals/[LANGUAGE].ts` exports what will be included in the global block of the corresponding snippet file.
-    - Because snipbuild uses a bundler ([Rolldown](https://rolldown.rs/)) under the hood, you can split your source code in several files.
-    - You can use your favorite tools for normal JS/TS development, for example, [Vitest](https://vitest.dev/) for unit-testing. It makes maintainance far easier.
+  - Each `src/globals/[LANGUAGE].ts` exports what will be included in the global block of the corresponding snippet file.
+  - Because snipbuild uses a bundler ([Rolldown](https://rolldown.rs/)) under the hood, you can split your source code in several files.
+  - You can use your favorite tools for normal JS/TS development, for example, [Vitest](https://vitest.dev/) for unit-testing. It makes maintainance far easier.
 - The snippet blocks for each language is located at `src/snippets/[LANGUAGE].hsnips`. It is in the exact same format as normal `.hsnips` files except:
   - It does not have the `global ... endglobal` block at the top.
   - It allows you to include common snippets shared by several (but not necessarily all) languages using `#include "..."`.
@@ -14,7 +14,10 @@
 ## How to use
 
 1. Install Node.js
-2. Run `npx snipbuild` to generate snippet files under the `dist/` directory
+2. Run `npx snipbuild` to generate snippet files under the `dist/` directory.
+
+- Alternatively, you can install `snipbuild` as a dependency (e.g. `npm install -D snipbuild` or `pnpm add -D snipbuild`), add `"build": "snipbuild"` script to `package.json`, and then run `pnpm build`.
+
 3. Install the generated snippet files. For example, you can use the following script on macOS (assuming you've installed both VSCode and Cursor):
 
    ```bash
@@ -31,3 +34,7 @@
 4. Make sure you execute the `HyperSnips: Reload Snippets` command after updating the snippet files.
 
 Once you install the snippets using symbolic links (as shown above), all you have to do after making edit to the source code is `npx snipbuild` & `HyperSnips: Reload Snippets`.
+
+### Examples
+
+You can refer to https://github.com/RyotaUshio/hsnips-dev for example usages.
