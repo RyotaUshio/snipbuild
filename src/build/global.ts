@@ -14,6 +14,7 @@ async function bundleGlobal(language: Language): Promise<OutputChunk> {
         output: {
             minify: true,
             format: 'cjs',
+            exports: 'named',
         },
         experimental: {
             attachDebugInfo: 'none',

@@ -3,7 +3,7 @@
 **snipbuild** is a build tool that provides an easier way to develop [HyperSnips](https://github.com/draivin/hsnips) snippets.
 
 - You can develop Global block JavaScript using TypeScript.
-  - Each `src/globals/[LANGUAGE].ts` exports what will be included in the global block of the corresponding snippet file.
+  - Each `src/globals/[LANGUAGE].ts` exports what will be included in the global block of the corresponding snippet file (_Note: only named exports are allowed, i.e., do not use `export default`_).
   - Because snipbuild uses a bundler ([Rolldown](https://rolldown.rs/)) under the hood, you can split your source code in several files.
   - You can use your favorite tools for normal JS/TS development, for example, [Vitest](https://vitest.dev/) for unit-testing. It makes maintainance far easier.
 - The snippet blocks for each language is located at `src/snippets/[LANGUAGE].hsnips`. It is in the exact same format as normal `.hsnips` files except:
