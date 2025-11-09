@@ -15,9 +15,7 @@
 
 1. Install Node.js
 2. Run `npx snipbuild` to generate snippet files under the `dist/` directory.
-
-- Alternatively, you can install `snipbuild` as a dependency (e.g. `npm install -D snipbuild` or `pnpm add -D snipbuild`), add `"build": "snipbuild"` script to `package.json`, and then run `pnpm build`.
-
+   - Alternatively, you can install `snipbuild` as a dependency (e.g. `npm install -D snipbuild` or `pnpm add -D snipbuild`), add `"build": "snipbuild"` script to `package.json`, and then run `pnpm build`.
 3. Install the generated snippet files. For example, you can use the following script on macOS (assuming you've installed both VSCode and Cursor):
 
    ```bash
