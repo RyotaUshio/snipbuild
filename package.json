@@ -1,0 +1,34 @@
+{
+  "name": "snipbuild",
+  "version": "0.1.0",
+  "description": "HyperSnips snippets bundler",
+  "bin": {
+    "snipbuild": "bin/cli.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -noEmit && rolldown -c",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm format && pnpm lint && pnpm test && pnpm build"
+  },
+  "author": "Ryota Ushio",
+  "license": "MIT",
+  "packageManager": "pnpm@10.18.3",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.0",
+    "eslint": "^9.39.1",
+    "execa": "^9.6.0",
+    "prettier": "^3.6.2",
+    "rolldown": "1.0.0-beta.47",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3",
+    "vitest": "^4.0.8"
+  }
+}
